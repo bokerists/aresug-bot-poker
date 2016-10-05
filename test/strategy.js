@@ -76,3 +76,34 @@ describe('- Strategy -', () => {
     expect(bet).to.eql(0);
   });
 });
+
+
+describe('- Functions -', () => {
+  it('allIn should bet all money', () => {
+    const gamestate = {
+      'players': [
+        {
+          'id': 0,
+          'name': 'Arale',
+          'status': 'active',
+          'cards': [
+            {
+              'rank': 'K',
+              'type': 'C'
+            },
+            {
+              'rank': '2',
+              'type': 'H'
+            }
+          ],
+          'chips': 500,
+          'chipsBet': 0
+        }
+      ],
+      'me': 0,
+      'callAmount': 50,
+      'minimumRaiseAmount': 100
+    };
+    expect(player.allIn(gamestate)).to.equal(500);
+  });
+});

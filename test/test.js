@@ -20,11 +20,4 @@ describe('- Bot -', () => {
       .expect(200)
       .end(done);
   });
-
-  it('all in should bet all', () => {
-    const gamestate = {
-      
-    };
-    player.allIn;
-  });
 });
