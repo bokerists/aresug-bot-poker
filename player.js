@@ -14,6 +14,8 @@ exports = module.exports = {
     const raise = Math.max(gamestate.callAmount * 2, gamestate.minimumRaiseAmount);
     const allIn = this.myPlayer(gamestate).chips;
 
+    const allCards = gamestate.commonCards.concat(this.myPlayer(gamestate).cards);
+
     //
     // gamestate contains info about the state of the game.
     // check the documentation at https://bot-poker.herokuapp.com/wiki#gamestate for further info about the data structure.
@@ -48,6 +50,10 @@ exports = module.exports = {
     if (preFlop) {
       console.log('call');
       return call;
+    }
+
+    if (detector.hasTris(allCards)) {
+      return raise;
     }
 
     return 0;
