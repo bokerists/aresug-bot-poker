@@ -18,5 +18,5 @@ describe('- Bot -', () => {
       .get('/')
       .expect(200)
       .end(done);
-  });
+    });
 });
