@@ -26,6 +26,7 @@ exports = module.exports = {
     const me = gamestate.players[gamestate.me];
 
     const cards = me.cards;
+    console.dir(cards);
 
     if (cards.every(x => x.rank === 'A')) {
       return gamestate.callAmount;
