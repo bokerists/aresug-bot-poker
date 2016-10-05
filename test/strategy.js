@@ -106,15 +106,4 @@ describe('- Functions -', () => {
     };
     expect(player.allIn(gamestate)).to.equal(500);
   });
-
-
-  it('myPlayer should return the correct player', () => {
-    const gamestate = {
-      'players': [
-        1,'pippo'
-      ],
-      'me': 1
-    };
-    expect(player.myPlayer(gamestate)).to.equal('pippo');
-  });
 });

@@ -12,6 +12,7 @@ exports = module.exports = {
     const preFlop = gamestate.commonCards.length == 0;
     const call = gamestate.callAmount;
     const raise = Math.max(gamestate.callAmount * 2, gamestate.minimumRaiseAmount);
+    const allIn = this.myPlayer(gamestate).chips;
 
     //
     // gamestate contains info about the state of the game.
@@ -52,11 +53,5 @@ exports = module.exports = {
 
   myPlayer: function(gamestate) {
     return gamestate.players[gamestate.me];
-  },
-
-  allIn: function(gamestate) {
-    console.log('All in!');
-    return this.myPlayer(gamestate).chips;
   }
-
 };

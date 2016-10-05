@@ -10,7 +10,7 @@
   },
   "scripts": {
     "start": "node index",
-    "test": "istanbul test node_modules/mocha/bin/_mocha -R test/**/*.js"
+    "test": "node test"
   },
   "devDependencies": {
     "chai": "^3.5.0",
