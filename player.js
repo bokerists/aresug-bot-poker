@@ -23,7 +23,7 @@ exports = module.exports = {
 
     console.log(`Currently playing tournament ${gamestate.tournamentId}`);
 
-    const me = gamestate.players[gamestate.me];
+    const me = gamestate.players[gamestate.me];fgsfgd
 
     const cards = me.cards;
 
