@@ -37,8 +37,8 @@ exports = module.exports = {
       return this.allIn(gamestate);
     }
 
-    if (true) {
-
+    if (preFlop) {
+      
     }
 
     return 0;
