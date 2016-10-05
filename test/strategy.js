@@ -6,37 +6,6 @@ chai.use(sinonChai);
 
 const player = require('../player');
 
-let carteBasse;
-let coppiaAlta;
-beforeEach(() => {
-  carteBasse = {
-    'commonCards': [''],
-    'players': [
-      {
-        'id': 0,
-        'name': 'Arale',
-        'status': 'active',
-        'cards': [
-          {
-            'rank': '2',
-            'type': 'C'
-          },
-          {
-            'rank': 'K',
-            'type': 'H'
-          }
-        ],
-        'chips': 500,
-        'chipsBet': 0
-      }
-    ],
-    'db': 2,
-    'me': 0,
-    'callAmount': 50,
-    'minimumRaiseAmount': 100
-  };
-});
-
 const gamestateFactory = (cards, chips, call, raise) => ({
   'commonCards': [''],
   'players': [
@@ -89,7 +58,16 @@ describe('- Strategy -', () => {
   });
 
   it('should fold otherwise', () => {
-    const gamestate = carteBasse;
+    const gamestate = gamestateFactory([
+      {
+        'rank': '2',
+        'type': 'C'
+      },
+      {
+        'rank': 'K',
+        'type': 'H'
+      }
+    ], 500, 50, 100);
     const bet = player.bet(gamestate);
 
     expect(bet).to.equal(0);
