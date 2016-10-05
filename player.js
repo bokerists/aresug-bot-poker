@@ -31,6 +31,7 @@ exports = module.exports = {
     console.dir(cards);
 
     if (cards.every(x => this.cardValue.indexOf(x.rank) > 8)) {
+      console.log('All in!');
       return me.chips;
     }
 
