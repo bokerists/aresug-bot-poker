@@ -37,9 +37,12 @@ exports = module.exports = {
 
     if (cards.every(x => this.cardValue.indexOf(x.rank) > 7)) {
       if (cards[0].rank === cards[1].rank) {
-        console.log('all in');
         return this.allIn(gamestate);
       }
+      return this.raise(gamestate);
+    }
+
+    if (detector.hasTris(allCards)) {
       return this.raise(gamestate);
     }
 
