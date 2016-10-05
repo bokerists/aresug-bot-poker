@@ -10,6 +10,8 @@ exports = module.exports = {
 
   bet: function(gamestate) {
     const preFlop = gamestate.commonCards.length == 0;
+    const call = gamestate.callAmount;
+    const raise = Math.max(gamestate.callAmount * 2, gamestate.minimumRaiseAmount);
 
     //
     // gamestate contains info about the state of the game.
@@ -37,11 +39,11 @@ exports = module.exports = {
       if (cards[0].rank === cards[1].rank) {
         return this.allIn(gamestate);
       }
-      return this.allIn(gamestate);
+      return raise;
     }
 
     if (preFlop) {
-      return gamestate.callAmount;
+      return call;
     }
 
     return 0;
