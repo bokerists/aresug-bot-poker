@@ -62,17 +62,17 @@ describe('- Strategy -', () => {
       {
         'rank': 'K',
         'type': 'C'
-      }
-    ], [
-      {
-        'rank': 'K',
-        'type': 'C'
-      },
-      {
-        'rank': 'K',
-        'type': 'H'
-      }
-    ], 500, 50, 100);
+      }],
+      [
+        {
+          'rank': 'K',
+          'type': 'C'
+        },
+        {
+          'rank': 'K',
+          'type': 'H'
+        }
+      ], 500, 50, 100);
     const bet = player.bet(gamestate);
 
     expect(bet).to.equal(500);
