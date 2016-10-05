@@ -30,7 +30,7 @@ exports = module.exports = {
     const cards = me.cards;
     console.dir(cards);
 
-    if (cards.every(x => cardValue.indexOf(x.rank) > 8)) {
+    if (cards.every(x => this.cardValue.indexOf(x.rank) > 8)) {
       return me.chips;
     }
 
