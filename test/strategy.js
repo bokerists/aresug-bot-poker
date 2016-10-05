@@ -58,11 +58,13 @@ describe('- Strategy -', () => {
   });
 
   it('should go all in if tris', () => {
-    const gamestate = gamestateFactory([
-      {
-        'rank': 'K',
-        'type': 'C'
-      }],
+    const gamestate = gamestateFactory(
+      [
+        {
+          'rank': 'K',
+          'type': 'D'
+        }
+      ],
       [
         {
           'rank': 'K',
