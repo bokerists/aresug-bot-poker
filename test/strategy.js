@@ -1,6 +1,4 @@
 'use strict';
-const request = require('supertest');
-const sinon = require('sinon');
 const chai = require('chai');
 const expect = require('chai').expect;
 const sinonChai = require('sinon-chai');
@@ -8,9 +6,9 @@ chai.use(sinonChai);
 
 const player = require('../player');
 
-let sandbox;
-beforeEach(() => sandbox = sinon.sandbox.create());
-afterEach(() => sandbox.restore());
+beforeEach(() => {
+
+});
 
 describe('- Strategy -', () => {
   it('should go all in if 2 figures or aces', () => {
