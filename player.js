@@ -10,9 +10,6 @@ exports = module.exports = {
 
   bet: function(gamestate) {
     const preFlop = gamestate.commonCards.length == 0;
-    const call = gamestate.callAmount;
-    const raise = Math.max(gamestate.callAmount * 2, gamestate.minimumRaiseAmount);
-    const allIn = this.myPlayer(gamestate).chips;
 
     const allCards = gamestate.commonCards.concat(this.myPlayer(gamestate).cards);
 
@@ -41,19 +38,17 @@ exports = module.exports = {
     if (cards.every(x => this.cardValue.indexOf(x.rank) > 7)) {
       if (cards[0].rank === cards[1].rank) {
         console.log('all in');
-        return allIn;
+        return this.allIn(gamestate);
       }
-      console.log('raise');
-      return raise;
+      return this.raise(gamestate);
     }
 
     if (preFlop) {
-      console.log('call');
-      return call;
+      return this.call(gamestate);
     }
 
     if (detector.hasTris(allCards)) {
-      return raise;
+      return this.raise(gamestate);
     }
 
     return 0;
@@ -61,5 +56,25 @@ exports = module.exports = {
 
   myPlayer: function(gamestate) {
     return gamestate.players[gamestate.me];
+  },
+
+  fold: function() {
+    console.log('fold');
+    return 0;
+  },
+
+  raise: function(gamestate) {
+    console.log('raise');
+    return Math.max(gamestate.callAmount * 2, gamestate.minimumRaiseAmount);
+  },
+
+  allIn: function(gamestate) {
+    console.log('all in');
+    return this.myPlayer(gamestate).chips;
+  },
+
+  call: function(gamestate) {
+    console.log('call');
+    return gamestate.callAmount;
   }
 };
