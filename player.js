@@ -1,4 +1,6 @@
 
+const detector = require('botpoker-card-detection');
+
 exports = module.exports = {
 
   VERSION: 'Superstar poker js-player',
@@ -34,7 +36,7 @@ exports = module.exports = {
       return this.allIn(gamestate);
     }
 
-    
+
 
     return 0;
 
