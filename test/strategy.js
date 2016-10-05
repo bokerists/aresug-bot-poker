@@ -57,6 +57,27 @@ describe('- Strategy -', () => {
     expect(bet).to.equal(500);
   });
 
+  it('should go all in if tris', () => {
+    const gamestate = gamestateFactory([
+      {
+        'rank': 'K',
+        'type': 'C'
+      }
+    ], [
+      {
+        'rank': 'K',
+        'type': 'C'
+      },
+      {
+        'rank': 'K',
+        'type': 'H'
+      }
+    ], 500, 50, 100);
+    const bet = player.bet(gamestate);
+
+    expect(bet).to.equal(500);
+  });
+
   it('should fold otherwise', () => {
     const gamestate = gamestateFactory([''], [
       {
