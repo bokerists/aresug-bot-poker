@@ -34,6 +34,9 @@ exports = module.exports = {
     console.dir(cards);
 
     if (cards.every(x => this.cardValue.indexOf(x.rank) > 8)) {
+      if (cards[0].rank === cards[1].rank) {
+        return this.allIn(gamestate);
+      }
       return this.allIn(gamestate);
     }
 
