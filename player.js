@@ -38,7 +38,7 @@ exports = module.exports = {
     }
 
     if (preFlop) {
-      
+      return gamestate.callAmount;
     }
 
     return 0;

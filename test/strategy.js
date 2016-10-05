@@ -47,7 +47,7 @@ describe('- Strategy -', () => {
 
   it('should not go all in otherwise', () => {
     const gamestate = {
-      'commonCards': [],
+      'commonCards': [''],
       'players': [
         {
           'id': 0,
