@@ -38,7 +38,7 @@ exports = module.exports = {
 
     if (cards.every(x => this.cardValue.indexOf(x.rank) > 8)) {
       if (cards[0].rank === cards[1].rank) {
-        return this.allIn(gamestate);
+        return allIn;
       }
       return raise;
     }
@@ -48,7 +48,6 @@ exports = module.exports = {
     }
 
     return 0;
-
   },
 
   myPlayer: function(gamestate) {
