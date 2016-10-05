@@ -38,12 +38,15 @@ exports = module.exports = {
 
     if (cards.every(x => this.cardValue.indexOf(x.rank) > 8)) {
       if (cards[0].rank === cards[1].rank) {
+        console.log('all in');
         return allIn;
       }
+      console.log('raise');
       return raise;
     }
 
     if (preFlop) {
+      console.log('call');
       return call;
     }
 

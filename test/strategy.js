@@ -6,9 +6,11 @@ chai.use(sinonChai);
 
 const player = require('../player');
 
-let gs1;
+let carteAlte;
+let carteBasse;
+let coppiaAlta;
 beforeEach(() => {
-  gs1 = {
+  carteAlte = {
     'commonCards': [],
     'players': [
       {
@@ -34,75 +36,80 @@ beforeEach(() => {
     'callAmount': 50,
     'minimumRaiseAmount': 100
   };
+  carteBasse = {
+    'commonCards': [],
+    'players': [
+      {
+        'id': 0,
+        'name': 'Arale',
+        'status': 'active',
+        'cards': [
+          {
+            'rank': '2',
+            'type': 'C'
+          },
+          {
+            'rank': 'K',
+            'type': 'H'
+          }
+        ],
+        'chips': 500,
+        'chipsBet': 0
+      }
+    ],
+    'db': 2,
+    'me': 0,
+    'callAmount': 50,
+    'minimumRaiseAmount': 100
+  };
+  coppiaAlta = {
+    'commonCards': [],
+    'players': [
+      {
+        'id': 0,
+        'name': 'Arale',
+        'status': 'active',
+        'cards': [
+          {
+            'rank': 'K',
+            'type': 'C'
+          },
+          {
+            'rank': 'K',
+            'type': 'H'
+          }
+        ],
+        'chips': 500,
+        'chipsBet': 0
+      }
+    ],
+    'db': 2,
+    'me': 0,
+    'callAmount': 50,
+    'minimumRaiseAmount': 100
+  };
 });
 
 describe('- Strategy -', () => {
-  it('should go all in if 2 figures or aces', () => {
-    const gamestate = gs1;
+  it('should raise if 2 figures or aces', () => {
+    const gamestate = carteAlte;
+    const bet = player.bet(gamestate);
+
+    expect(bet).to.be.above(gamestate.callAmount);
+  });
+
+  it('should go all in if high pair', () => {
+    const gamestate = coppiaAlta;
     const bet = player.bet(gamestate);
     const allIn = gamestate.players[gamestate.me].chips;
-    expect(bet).to.eql(allIn);
+
+    expect(bet).to.equal(allIn);
   });
 
-  it('should not go all in otherwise', () => {
-    const gamestate = {
-      'commonCards': [''],
-      'players': [
-        {
-          'id': 0,
-          'name': 'Arale',
-          'status': 'active',
-          'cards': [
-            {
-              'rank': 'K',
-              'type': 'C'
-            },
-            {
-              'rank': '2',
-              'type': 'H'
-            }
-          ],
-          'chips': 500,
-          'chipsBet': 0
-        }
-      ],
-      'db': 2,
-      'me': 0,
-      'callAmount': 50,
-      'minimumRaiseAmount': 100
-    };
+  it('should fold otherwise', () => {
+    const gamestate = carteBasse;
     const bet = player.bet(gamestate);
-    expect(bet).to.eql(0);
-  });
-});
 
-
-describe('- Functions -', () => {
-  it('allIn should bet all money', () => {
-    const gamestate = {
-      'players': [
-        {
-          'id': 0,
-          'name': 'Arale',
-          'status': 'active',
-          'cards': [
-            {
-              'rank': 'K',
-              'type': 'C'
-            },
-            {
-              'rank': '2',
-              'type': 'H'
-            }
-          ],
-          'chips': 500,
-          'chipsBet': 0
-        }
-      ],
-      'me': 0,
-      'callAmount': 50,
-      'minimumRaiseAmount': 100
-    };
-    expect(player.allIn(gamestate)).to.equal(500);
+    expect(bet).to.equal(0);
   });
 });

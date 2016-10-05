@@ -1,4 +1,3 @@
-
 'use strict';
 
 const player = require('./player');
