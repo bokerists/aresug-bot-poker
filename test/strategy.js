@@ -6,8 +6,9 @@ chai.use(sinonChai);
 
 const player = require('../player');
 
+let gs1;
 beforeEach(() => {
-  const gs1 = {
+  gs1 = {
     'commonCards': [],
     'players': [
       {
