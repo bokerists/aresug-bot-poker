@@ -30,3 +30,5 @@ const port = parseInt(process.env['PORT'] || 1337);
 server.listen(port, function() {
   console.log('Server listening on port', server.address().port);
 });
+
+module.exports = app;

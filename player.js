@@ -23,6 +23,14 @@ exports = module.exports = {
 
     console.log(`Currently playing tournament ${gamestate.tournamentId}`);
 
+    const me = gamestate.players.filter(x => x.name === "aresug")
+
+    const cards = me.cards;
+
+    if (cards.every(x => x.rank === 'A')) {
+      return gamestate.callAmount;
+    }
+
     return 0;
 
   }
