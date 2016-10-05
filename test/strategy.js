@@ -6,8 +6,8 @@ chai.use(sinonChai);
 
 const player = require('../player');
 
-const gamestateFactory = (cards, chips, call, raise) => ({
-  'commonCards': [''],
+const gamestateFactory = (common, cards, chips, call, raise) => ({
+  'commonCards': common,
   'players': [
     {
       'id': 0,
@@ -26,7 +26,7 @@ const gamestateFactory = (cards, chips, call, raise) => ({
 
 describe('- Strategy -', () => {
   it('should raise if 2 figures or aces', () => {
-    const gamestate = gamestateFactory([
+    const gamestate = gamestateFactory([], [
       {
         'rank': 'K',
         'type': 'C'
@@ -42,7 +42,7 @@ describe('- Strategy -', () => {
   });
 
   it('should go all in if high pair', () => {
-    const gamestate = gamestateFactory([
+    const gamestate = gamestateFactory([], [
       {
         'rank': 'K',
         'type': 'C'
@@ -58,7 +58,7 @@ describe('- Strategy -', () => {
   });
 
   it('should fold otherwise', () => {
-    const gamestate = gamestateFactory([
+    const gamestate = gamestateFactory([''], [
       {
         'rank': '2',
         'type': 'C'
