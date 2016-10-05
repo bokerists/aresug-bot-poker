@@ -1,3 +1,4 @@
+'use strict';
 
 const detector = require('botpoker-card-detection');
 
@@ -23,7 +24,6 @@ exports = module.exports = {
     //
     // currently we just fold every single hand.
 
-    'use strict';
 
     console.log(`Currently playing tournament ${gamestate.tournamentId}`);
 
