@@ -29,7 +29,7 @@ exports = module.exports = {
     console.dir(cards);
 
     if (cards.every(x => x.rank === 'A')) {
-      return gamestate.callAmount;
+      return me.chips;
     }
 
     return 0;
