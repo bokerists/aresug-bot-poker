@@ -9,6 +9,7 @@ exports = module.exports = {
   cardValue: ['2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K', 'A'],
 
   bet: function(gamestate) {
+    const preFlop = gamestate.commonCards.length == 0;
 
     //
     // gamestate contains info about the state of the game.
