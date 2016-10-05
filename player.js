@@ -36,7 +36,7 @@ exports = module.exports = {
     const cards = me.cards;
     console.dir(cards);
 
-    if (cards.every(x => this.cardValue.indexOf(x.rank) > 8)) {
+    if (cards.every(x => this.cardValue.indexOf(x.rank) > 7)) {
       if (cards[0].rank === cards[1].rank) {
         console.log('all in');
         return allIn;
