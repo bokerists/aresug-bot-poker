@@ -7,6 +7,7 @@ const sinonChai = require('sinon-chai');
 chai.use(sinonChai);
 
 const app = require('../index');
+const player = require('../player');
 
 let sandbox;
 beforeEach(() => sandbox = sinon.sandbox.create());
@@ -18,5 +19,5 @@ describe('- Bot -', () => {
       .get('/')
       .expect(200)
       .end(done);
-    });
+  });
 });
